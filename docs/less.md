@@ -191,6 +191,83 @@ ul .product-list-item {
 }
 ```
 
+- z-index values
+
+Use increments of 100 instead of 1 when declaring z-index values.  
+```css
+/* bad */
+.layer1{
+  z-index: 1;
+}
+
+.layer2{
+  z-index: 2;
+}
+
+.layer3{
+  z-index: 3;
+}
+
+/* good */
+.layer1{
+  z-index: 100;
+}
+
+.layer2{
+  z-index: 200;
+}
+
+.layer3{
+  z-index: 300;
+}
+```
+Z-index values only accept integers.  When you have z-indexes of 1, 2, and 3 it is impossible to set a layer in between 1, 2, and 3 without refactoring all the related code first.  
+
+When you set z-indexes of 100, 200, and 300 you have space if you need to insert a layer in between. 
+
+When using z-indexes in between increments of 100, use increments of 10.  
+
+```css
+/* bad */
+.layer1{
+  z-index: 100
+}
+
+.sub-layer1{
+  z-index: 101
+}
+
+.sub-layer2{
+  z-index: 102
+}
+
+/* ok */
+.layer1{
+  z-index: 100
+}
+
+.sub-layer1{
+  z-index: 110
+}
+
+.sub-layer2{
+  z-index: 120
+}
+```
+
+If you get to the point of needing single digit increments you should consider refactoring (but you still have room to do so if needed).
+
+If your intention is to have a z-index as the absolute top layer use z-index: 9999; 
+
+```css
+.absolute-top{
+  z-index: 9999;
+}
+```
+
+Different browsers have different maximum values with different behaviors if you go over.
+
+
 ## <a name='properties'>Properties</a>
 
 - Use `translate(x, y)` rather than `position` (and `top`, `left`, etc.) to move elements on a page. ([see Paul Irish below](#transition)) ([jsPerf](http://jsperf.com/translate3d-vs-positioning/4))
