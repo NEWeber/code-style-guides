@@ -10,48 +10,48 @@ Here's a quick example of JavaScript formatted following this code style guide:
 'use strict';
 
 function foo ( fizz, buzz, firstName ) {
-    bar( 1, buzz );
+  bar( 1, buzz );
 
-    var lastName;
-    var idx     = 0;
-    var myObj   = { 0: 'zero', 1: 'one' };
-    var myArray = [ 0, 1, 2 ];
+  var lastName;
+  var idx     = 0;
+  var myObj   = { 0: 'zero', 1: 'one' };
+  var myArray = [ 0, 1, 2 ];
 
-    if ( firstName === 'Homer' ) {
-        lastName = 'Simpson';
-    }
+  if ( firstName === 'Homer' ) {
+    lastName = 'Simpson';
+  }
 
-    if ( !idx > 10 ) {
-        for ( var deeperIdx = 0; deeperIdx < 10; deeperIdx++ ) {
-            switch ( deeperIdx ) {
-                case 0:
-                    value = 'zero';
-                    break;
-                case 1:
-                    value = 'one';
-                    break;
-            }
-            var result = deeperIdx > 5 ? 'GT 5' : 'LE 5';
+  if ( !idx > 10 ) {
+    for ( var deeperIdx = 0; deeperIdx < 10; deeperIdx++ ) {
+      switch ( deeperIdx ) {
+        case 0:
+          value = 'zero';
+          break;
+        case 1:
+          value = 'one';
+          break;
         }
-    } else {
-        var evenDeeperIdx = 0;
-        try {
-            while ( evenDeeperIdx < 10 ) {
-                if ( idx === evenDeeperIdx || evenDeeperIdx > 5 ) {
-                    myArray[ evenDeeperIdx ] = idx + evenDeeperIdx * 12;
-                }
-                idx = ( evenDeeperIdx << 2 ) & 4;
-                evenDeeperIdx++;
-            }
-            do {
-                evenDeeperIdx--;
-            } while ( evenDeeperIdx > 0 )
-        } catch ( err ) {
-            alert( 'Failure: ' + err.message );
-        } finally {
-            reset( myArray, idx );
+        var result = deeperIdx > 5 ? 'GT 5' : 'LE 5';
+      }
+  } else {
+    var evenDeeperIdx = 0;
+    try {
+      while ( evenDeeperIdx < 10 ) {
+        if ( idx === evenDeeperIdx || evenDeeperIdx > 5 ) {
+          myArray[ evenDeeperIdx ] = idx + evenDeeperIdx * 12;
         }
+        idx = ( evenDeeperIdx << 2 ) & 4;
+        evenDeeperIdx++;
+      }
+      do {
+        evenDeeperIdx--;
+      } while ( evenDeeperIdx > 0 )
+    } catch ( err ) {
+      alert( 'Failure: ' + err.message );
+    } finally {
+      reset( myArray, idx );
     }
+  }
 }
 
 ```
@@ -176,14 +176,14 @@ From [Steve Kwan](#kwan-best-practices):
     ```javascript
     // good
     var superman = {
-        defaults: { clark: 'kent' },
-        hidden: true
+      defaults: { clark: 'kent' },
+      hidden: true
     };
 
     // bad
     var superman = {
-        default: { clark: 'kent' },
-        private: true
+      default: { clark: 'kent' },
+      private: true
     };
     ```
 
@@ -192,17 +192,17 @@ From [Steve Kwan](#kwan-best-practices):
     ```javascript
     // good
     var superman = {
-        type: 'alien'
+      type: 'alien'
     };
 
     // bad
     var superman = {
-        class: 'alien'
+      class: 'alien'
     };
 
     // bad
     var superman = {
-        klass: 'alien'
+      klass: 'alien'
     };
     ```
 
@@ -246,7 +246,7 @@ From [Steve Kwan](#kwan-best-practices):
 
     // bad
     for ( i = 0; i < len; i++ ) {
-        itemsCopy[ i ] = items[ i ];
+      itemsCopy[ i ] = items[ i ];
     }
     ```
 
@@ -254,8 +254,8 @@ From [Steve Kwan](#kwan-best-practices):
 
     ```javascript
     function trigger () {
-        var args = Array.prototype.slice.call( arguments );
-        ...
+      var args = Array.prototype.slice.call( arguments );
+      ...
     }
     ```
 
@@ -290,11 +290,11 @@ From [Steve Kwan](#kwan-best-practices):
     ```javascript
     // good
     var errorMessage = 'This is a super long error that ' +
-        'was thrown because of Batman.' +
-        'When you stop to think about ' +
-        'how Batman had anything to do ' +
-        'with this, you would get nowhere ' +
-        'fast.';
+      'was thrown because of Batman.' +
+      'When you stop to think about ' +
+      'how Batman had anything to do ' +
+      'with this, you would get nowhere ' +
+      'fast.';
 
     // bad
     var errorMessage = 'This is a super long error that was thrown because of Batman. When you stop to think about how Batman had anything to do with this, you would get nowhere fast.';
@@ -318,38 +318,38 @@ From [Steve Kwan](#kwan-best-practices):
     var i;
 
     messages = [{
-        state: 'success',
-        message: 'This one worked.'
+      state: 'success',
+      message: 'This one worked.'
     },{
-        state: 'success',
-        message: 'This one worked as well.'
+      state: 'success',
+      message: 'This one worked as well.'
     },{
-        state: 'error',
-        message: 'This one did not work.'
+      state: 'error',
+      message: 'This one did not work.'
     }];
 
     length = messages.length;
 
     // good
     function inbox ( messages ) {
-        items = [];
+      items = [];
 
-        for ( i = 0; i < length; i++ ) {
-          items[ i ] = messages[ i ].message;
-        }
+      for ( i = 0; i < length; i++ ) {
+        items[ i ] = messages[ i ].message;
+      }
 
-        return '<ul><li>' + items.join('</li><li>') + '</li></ul>';
+      return '<ul><li>' + items.join('</li><li>') + '</li></ul>';
     }
 
     // bad
     function inbox ( messages ) {
-        items = '<ul>';
+      items = '<ul>';
 
-        for ( i = 0; i < length; i++ ) {
-            items += '<li>' + messages[i].message + '</li>';
-        }
+      for ( i = 0; i < length; i++ ) {
+        items += '<li>' + messages[i].message + '</li>';
+      }
 
-        return items + '</ul>';
+      return items + '</ul>';
     }
     ```
 - As much as possible, strings should be externalized to a separate "strings" module. This makes our code more readable, DRYer, and easier to maintain. Examples where this makes sense: data attribute names, selectors, events, etc.
@@ -357,13 +357,13 @@ From [Steve Kwan](#kwan-best-practices):
     ```javascript
     // strings.js
     module.exports.selectors = {
-        item:  '.item',
-        items: '.items'
+      item:  '.item',
+      items: '.items'
     };
 
     module.exports.events = {
-        thingUpdated: 'updated.thing',
-        thingClosed:  'closed.thing'
+      thingUpdated: 'updated.thing',
+      thingClosed:  'closed.thing'
     };
     ```
 
@@ -374,11 +374,11 @@ From [Steve Kwan](#kwan-best-practices):
     var events    = strings.events;
 
     $( document ).bind( events.thingUpdated, function () {
-        // do things
+      // do things
     });
 
     $( document ).delegate( selectors.items, 'click', function () {
-        // do stuff
+      // do stuff
     });
     ```
 
@@ -393,17 +393,17 @@ From [Steve Kwan](#kwan-best-practices):
     ```javascript
     // anonymous function expression
     var anonymous = function () {
-        return true;
+      return true;
     };
 
     // named function expression
     var named = function named () {
-        return true;
+      return true;
     };
 
     // immediately-invoked function expression (IIFE)
     (function () {
-        console.log( 'Welcome to the Internet. Please follow me.' );
+      console.log( 'Welcome to the Internet. Please follow me.' );
     })();
     ```
 
@@ -413,16 +413,16 @@ From [Steve Kwan](#kwan-best-practices):
     // good
     var test;
     if ( currentUser ) {
-        test = function test () {
-            console.log( 'Yup.' );
-        };
+      test = function test () {
+          console.log( 'Yup.' );
+      };
     }
 
     // bad
     if ( currentUser ) {
-        function test () {
-            console.log( 'Nope.' );
-        }
+      function test () {
+        console.log( 'Nope.' );
+      }
     }
     ```
 
@@ -431,12 +431,12 @@ From [Steve Kwan](#kwan-best-practices):
     ```javascript
     // good
     function yup ( name, options, args ) {
-        // ...stuff...
+      // ...stuff...
     }
 
     // bad
     function nope ( name, options, arguments ) {
-        // ...stuff...
+      // ...stuff...
     }
     ```
 
@@ -445,18 +445,18 @@ From [Steve Kwan](#kwan-best-practices):
     ```javascript
     // better
     function fact ( n ) {
-        var total = 1;
-        while ( n ) {
-            total = total * n;
-            --n;
-        }
-        return total;
+      var total = 1;
+      while ( n ) {
+        total = total * n;
+        --n;
+      }
+      return total;
     }
     fact( 40000 ); // => Infinity (in Chrome; not correct, but that's because of JavaScript's MaxInt)
 
     // bad
     function fact ( n, total ) {
-        return n > 0 ? fact( n - 1, n * total ) : 1;
+      return n > 0 ? fact( n - 1, n * total ) : 1;
     }
     fact( 40000, 1 ); // => RangeError: Maximum call stack size exceeded (in Chrome)
     ```
@@ -471,8 +471,8 @@ From [Steve Kwan](#kwan-best-practices):
 
     ```javascript
     var luke = {
-        jedi: true,
-        age: 28
+      jedi: true,
+      age: 28
     };
 
     // good
@@ -486,12 +486,12 @@ From [Steve Kwan](#kwan-best-practices):
 
     ```javascript
     var luke = {
-        jedi: true,
-        age: 28
+      jedi: true,
+      age: 28
     };
 
     function getProp ( prop ) {
-        return luke[ prop ];
+      return luke[ prop ];
     }
 
     var isJedi = getProp( 'jedi' );
@@ -555,56 +555,56 @@ From [Steve Kwan](#kwan-best-practices):
     ```javascript
     // good
     function () {
-        var name = getName();
+      var name = getName();
 
-        test();
-        console.log( 'doing stuff..' );
+      test();
+      console.log( 'doing stuff..' );
 
-        //..other stuff..
+      //..other stuff..
 
-        if ( name === 'test' ) {
-            return false;
-        }
+      if ( name === 'test' ) {
+        return false;
+      }
 
-        return name;
+      return name;
     }
 
     // bad
     function () {
-        test();
-        console.log( 'doing stuff..' );
+      test();
+      console.log( 'doing stuff..' );
 
-        //..other stuff..
+      //..other stuff..
 
-        var name = getName();
+      var name = getName();
 
-        if ( name === 'test' ) {
-            return false;
-        }
+      if ( name === 'test' ) {
+        return false;
+      }
 
-        return name;
+      return name;
     }
 
     // good
     function () {
-        if ( !arguments.length ) {
-            return false;
-        }
+      if ( !arguments.length ) {
+        return false;
+      }
 
-        var name = getName();
+      var name = getName();
 
-        return true;
+      return true;
     }
 
     // bad
     function () {
-        var name = getName();
+      var name = getName();
 
-        if ( !arguments.length ) {
-            return false;
-        }
+      if ( !arguments.length ) {
+        return false;
+      }
 
-        return true;
+      return true;
     }
     ```
 
@@ -620,7 +620,7 @@ From [Steve Kwan](#kwan-best-practices):
     // we know this wouldn't work (assuming there
     // is no notDefined global variable)
     function example () {
-        console.log( notDefined ); // => throws a ReferenceError
+      console.log( notDefined ); // => throws a ReferenceError
     }
 
     // creating a variable declaration after you
@@ -628,17 +628,17 @@ From [Steve Kwan](#kwan-best-practices):
     // variable hoisting. Note: the assignment
     // value of `true` is not hoisted.
     function example () {
-        console.log( declaredButNotAssigned ); // => undefined
-        var declaredButNotAssigned = true;
+      console.log( declaredButNotAssigned ); // => undefined
+      var declaredButNotAssigned = true;
     }
 
     // The interpreter is hoisting the variable
     // declaration to the top of the scope.
     // Which means our example could be rewritten as:
     function example () {
-        var declaredButNotAssigned;
-        console.log( declaredButNotAssigned ); // => undefined
-        declaredButNotAssigned = true;
+      var declaredButNotAssigned;
+      console.log( declaredButNotAssigned ); // => undefined
+      declaredButNotAssigned = true;
     }
     ```
 
@@ -646,13 +646,13 @@ From [Steve Kwan](#kwan-best-practices):
 
     ```javascript
     function example () {
-        console.log( anonymous ); // => undefined
+      console.log( anonymous ); // => undefined
 
-        anonymous(); // => TypeError anonymous is not a function
+      anonymous(); // => TypeError anonymous is not a function
 
-        var anonymous = function () {
-            console.log( 'anonymous function expression' );
-        };
+      var anonymous = function () {
+        console.log( 'anonymous function expression' );
+      };
     }
     ```
 
@@ -660,27 +660,27 @@ From [Steve Kwan](#kwan-best-practices):
 
     ```javascript
     function example () {
-        console.log( named ); // => undefined
+      console.log( named ); // => undefined
 
-        named(); // => TypeError named is not a function
+      named(); // => TypeError named is not a function
 
-        superPower(); // => ReferenceError superPower is not defined
+      superPower(); // => ReferenceError superPower is not defined
 
-        var named = function superPower () {
-            console.log( 'Flying' );
-        };
+      var named = function superPower () {
+        console.log( 'Flying' );
+      };
     }
 
     // the same is true when the function name
     // is the same as the variable name.
     function example () {
-        console.log( named ); // => undefined
+      console.log( named ); // => undefined
 
-        named(); // => TypeError named is not a function
+      named(); // => TypeError named is not a function
 
-        var named = function named () {
-            console.log( 'named' );
-        }
+      var named = function named () {
+        console.log( 'named' );
+      }
     }
     ```
 
@@ -688,11 +688,11 @@ From [Steve Kwan](#kwan-best-practices):
 
     ```javascript
     function example () {
-        superPower(); // => Flying
+      superPower(); // => Flying
 
-        function superPower () {
-            console.log( 'Flying' );
-        }
+      function superPower () {
+        console.log( 'Flying' );
+      }
     }
     ```
 
@@ -717,8 +717,8 @@ For more information refer to [JavaScript Scoping & Hoisting](//www.adequatelygo
 
     ```javascript
     if ( [ 0 ] ) {
-        // true
-        // An array is an object, objects evaluate to true
+      // true
+      // An array is an object, objects evaluate to true
     }
     ```
 
@@ -727,22 +727,22 @@ For more information refer to [JavaScript Scoping & Hoisting](//www.adequatelygo
     ```javascript
     // good
     if ( name ) {
-        // ...stuff...
+      // ...stuff...
     }
 
     // bad
     if ( name !== '' ) {
-        // ...stuff...
+      // ...stuff...
     }
 
     // good
     if ( collection.length ) {
-        // ...stuff...
+      // ...stuff...
     }
 
     // bad
     if ( collection.length > 0 ) {
-        // ...stuff...
+      // ...stuff...
     }
     ```
 
@@ -762,17 +762,17 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
 
     // good
     if ( test ) {
-        return false;
+      return false;
     }
 
     // good
     function () {
-        return false;
+      return false;
     }
 
     // bad
     if ( test )
-        return false;
+      return false;
 
     // bad
     function () { return false; }
@@ -796,9 +796,9 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
      */
     function make ( tag ) {
 
-        // ...stuff...
+      // ...stuff...
 
-        return element;
+      return element;
     }
 
     // good
@@ -811,9 +811,9 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
      */
     function make ( tag ) {
 
-        // ...stuff...
+      // ...stuff...
 
-        return element;
+      return element;
     }
 
     // bad
@@ -824,9 +824,9 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
     // @return <Element> element
     function make ( tag ) {
 
-        // ...stuff...
+      // ...stuff...
 
-        return element;
+      return element;
     }
     ```
 
@@ -839,12 +839,12 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
 
     // good
     function getType () {
-        console.log( 'fetching type...' );
+      console.log( 'fetching type...' );
 
-        // set the default type to 'no type'
-        var type = this._type || 'no type';
+      // set the default type to 'no type'
+      var type = this._type || 'no type';
 
-        return type;
+      return type;
     }
 
     // bad
@@ -852,11 +852,11 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
 
     // bad
     function getType () {
-        console.log( 'fetching type...' );
-        // set the default type to 'no type'
-        var type = this._type || 'no type';
+      console.log( 'fetching type...' );
+      // set the default type to 'no type'
+      var type = this._type || 'no type';
 
-        return type;
+      return type;
     }
     ```
 
@@ -867,10 +867,10 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
     ```javascript
     function Calculator () {
 
-        // FIXME: shouldn't use a global here
-        total = 0;
+      // FIXME: shouldn't use a global here
+      total = 0;
 
-        return this;
+      return this;
     }
     ```
 
@@ -879,10 +879,10 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
     ```javascript
     function Calculator () {
 
-        // TODO: total should be configurable by an options param
-        this.total = 0;
+      // TODO: total should be configurable by an options param
+      this.total = 0;
 
-        return this;
+      return this;
     }
     ```
 
@@ -892,10 +892,15 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
 <a name='whitespace'>Whitespace</a>
 -----------------------------------
 
-- Use soft tabs (tabs composed of spaces) set to 4 spaces
+- Use soft tabs (tabs composed of spaces) set to 2 spaces
 
     ```javascript
     // good
+    function () {
+    ∙∙var name;
+    }
+
+    // bad
     function () {
     ∙∙∙∙var name;
     }
@@ -903,11 +908,6 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
     // bad
     function () {
     ∙∙∙var name;
-    }
-
-    // bad
-    function () {
-    ∙∙var name;
     }
 
     // bad
@@ -922,24 +922,24 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
     ```javascript
     // good
     function test () {
-        console.log( 'test' );
+      console.log( 'test' );
     }
 
     // good
     dog.set( 'attr', {
-        age:    '1 year',
-        breed:  'Bernese Mountain Dog'
+      age:    '1 year',
+      breed:  'Bernese Mountain Dog'
     } );
 
     // bad
     function test (){
-        console.log( 'test' );
+      console.log( 'test' );
     }
 
     // bad
     dog.set( 'attr',{
-        age:    '1 year',
-        breed:  'Bernese Mountain Dog'
+      age:    '1 year',
+      breed:  'Bernese Mountain Dog'
     } );
 
     ```
@@ -949,11 +949,11 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
     ```javascript
     // good
     for ( var i = 0; i < foo.length; ++i ) {
-        ...
+      ...
     }
 
     var f = function ( a, b, c ) {
-        ...
+      ...
     };
 
     f( 1, 2, 3 );
@@ -962,11 +962,11 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
 
     // bad
     for(var i = 0; i < foo.length; ++i) {
-        ...
+      ...
     }
 
     var f = function(a, b, c) {
-        ...
+      ...
     };
 
     f(1, 2, 3);
@@ -979,7 +979,7 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
     ```javascript
     // good
     ( function ( global ) {
-        // ...stuff...
+      // ...stuff...
     } )( this );
 
     ```
@@ -987,7 +987,7 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
     ```javascript
     // bad
     ( function ( global ) {
-        // ...stuff...
+      // ...stuff...
     } )( this );
     ```
 
@@ -996,30 +996,30 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
     ```javascript
     // good
     $( '#items' )
-        .find( '.selected' )
-            .highlight()
-            .end()
-        .find( '.open' )
-            .updateCount();
+      .find( '.selected' )
+          .highlight()
+          .end()
+      .find( '.open' )
+          .updateCount();
 
     // bad
     $( '#items' ).find( '.selected' ).highlight().end().find( '.open' ).updateCount();
 
     // good
     var leds = stage.selectAll( '.led' )
-            .data( data )
-        .enter().append( 'svg:svg' )
-            .class( 'led', true)
-            .attr( 'width',  ( r adius + margin ) * 2 )
-        .append( 'svg:g' )
-            .attr( 'transform', 'translate(' + ( radius + margin ) + ',' + ( radius + margin ) + ')' )
-            .call( tron.led );
+          .data( data )
+      .enter().append( 'svg:svg' )
+          .class( 'led', true)
+          .attr( 'width',  ( r adius + margin ) * 2 )
+      .append( 'svg:g' )
+          .attr( 'transform', 'translate(' + ( radius + margin ) + ',' + ( radius + margin ) + ')' )
+          .call( tron.led );
 
     // bad
     var leds = stage.selectAll( '.led' ).data( data ).enter().append( 'svg:svg' ).class( 'led', true )
-        .attr('width',  (radius + margin) * 2).append('svg:g')
-        .attr( 'transform', 'translate(' + ( radius + margin ) + ',' + ( radius + margin ) + ')' )
-        .call( tron.led );
+      .attr('width',  (radius + margin) * 2).append('svg:g')
+      .attr( 'transform', 'translate(' + ( radius + margin ) + ',' + ( radius + margin ) + ')' )
+      .call( tron.led );
     ```
 
 [[↑ back to top]](#TOC)
@@ -1033,18 +1033,18 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
     ```javascript
     // good
     var hero = {
-        firstName:  'Bob',
-        lastName:   'Parr',
-        heroName:   'Mr. Incredible',
-        superPower: 'strength'
+      firstName:  'Bob',
+      lastName:   'Parr',
+      heroName:   'Mr. Incredible',
+      superPower: 'strength'
     };
 
     // bad
     var hero = {
-        firstName: 'Bob'
-        , lastName: 'Parr'
-        , heroName: 'Mr. Incredible'
-        , superPower: 'strength'
+      firstName: 'Bob'
+      , lastName: 'Parr'
+      , heroName: 'Mr. Incredible'
+      , superPower: 'strength'
     };
     ```
 
@@ -1055,24 +1055,24 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
     ```javascript
     // good
     var hero = {
-        firstName: 'Kevin',
-        lastName: 'Flynn'
+      firstName: 'Kevin',
+      lastName: 'Flynn'
     };
 
     var heroes = [
-        'Batman',
-        'Superman'
+      'Batman',
+      'Superman'
     ];
 
     // bad
     var hero = {
-        firstName: 'Kevin',
-        lastName: 'Flynn',
+      firstName: 'Kevin',
+      lastName: 'Flynn',
     };
 
     var heroes = [
-        'Batman',
-        'Superman',
+      'Batman',
+      'Superman',
     ];
     ```
 
@@ -1087,20 +1087,20 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
     ```javascript
     // good
     ;( function () {
-        var name = 'Skywalker';
-        return name;
+      var name = 'Skywalker';
+      return name;
     } )();
 
     // good
     ( function () {
-        var name = 'Skywalker';
-        return name;
+      var name = 'Skywalker';
+      return name;
     } )();
 
     // bad
     ( function () {
-        var name = 'Skywalker'
-        return name
+      var name = 'Skywalker'
+      return name
     } )()
     ```
 
@@ -1192,12 +1192,12 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
     ```javascript
     // good
     function query () {
-        // ..stuff..
+      // ..stuff..
     }
 
     // bad
     function q () {
-        // ...stuff...
+      // ...stuff...
     }
     ```
 
@@ -1208,7 +1208,7 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
     var thisIsMyObject = {};
     function thisIsMyFunction () {};
     var user = new User( {
-        name: 'Bob Parr'
+      name: 'Bob Parr'
     } );
 
     // bad
@@ -1216,7 +1216,7 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
     var this_is_my_object = {};
     function c() {};
     var u = new user( {
-        name: 'Bob Parr'
+      name: 'Bob Parr'
     } );
     ```
 
@@ -1225,20 +1225,20 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
     ```javascript
     // good
     function User ( options ) {
-        this.name = options.name;
+      this.name = options.name;
     }
 
     var good = new User( {
-        name: 'yup'
+      name: 'yup'
     } );
 
     // bad
     function user ( options ) {
-        this.name = options.name;
+      this.name = options.name;
     }
 
     var bad = new user( {
-        name: 'nope'
+      name: 'nope'
     } );
     ```
 
@@ -1258,26 +1258,26 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
     ```javascript
     // good
     function () {
-        var _this = this;
-        return function () {
-            console.log( _this );
-        };
+      var _this = this;
+      return function () {
+        console.log( _this );
+      };
     }
 
     // good
     function () {
-        var self = this;
-        return function () {
-            console.log( self );
-        };
+      var self = this;
+      return function () {
+        console.log( self );
+      };
     }
 
     // bad
     function () {
-        var that = this;
-        return function () {
-            console.log( that );
-        };
+      var that = this;
+      return function () {
+        console.log( that );
+      };
     }
     ```
 
@@ -1286,12 +1286,12 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
     ```javascript
     // good
     var log = function log ( msg ) {
-        console.log( msg );
+      console.log( msg );
     };
 
     // bad
     var log = function ( msg ) {
-        console.log( msg );
+      console.log( msg );
     };
     ```
 
@@ -1323,12 +1323,12 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
     ```javascript
     // good
     if ( !dragon.hasAge() ) {
-        return false;
+      return false;
     }
 
     // bad
     if ( !dragon.age() ) {
-        return false;
+      return false;
     }
     ```
 
@@ -1336,17 +1336,17 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
 
     ```javascript
     function Jedi ( options ) {
-        options || ( options = {} );
-        var lightsaber = options.lightsaber || 'blue';
-        this.set( 'lightsaber', lightsaber );
+      options || ( options = {} );
+      var lightsaber = options.lightsaber || 'blue';
+      this.set( 'lightsaber', lightsaber );
     }
 
     Jedi.prototype.set = function ( key, val ) {
-        this[ key ] = val;
+      this[ key ] = val;
     };
 
     Jedi.prototype.get = function ( key ) {
-        return this[ key ];
+      return this[ key ];
     };
     ```
 
@@ -1360,27 +1360,27 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
 
     ```javascript
     function Jedi () {
-        console.log( 'new jedi' );
+      console.log( 'new jedi' );
     }
 
     // good
     Jedi.prototype.fight = function fight () {
-        console.log( 'fighting' );
+      console.log( 'fighting' );
     };
 
     Jedi.prototype.block = function block () {
-        console.log( 'blocking' );
+      console.log( 'blocking' );
     };
 
     // bad
     Jedi.prototype = {
-        fight: function fight () {
-            console.log( 'fighting' );
-        },
+      fight: function fight () {
+        console.log( 'fighting' );
+      },
 
-        block: function block () {
-            console.log( 'blocking' );
-        }
+      block: function block () {
+        console.log( 'blocking' );
+      }
     };
     ```
 
@@ -1389,28 +1389,28 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
     ```javascript
     // good
     Jedi.prototype.jump = function () {
-        this.jumping = true;
-        return this;
+      this.jumping = true;
+      return this;
     };
 
     Jedi.prototype.setHeight = function ( height ) {
-        this.height = height;
-        return this;
+      this.height = height;
+      return this;
     };
 
     var luke = new Jedi();
 
     luke.jump()
-        .setHeight( 20 );
+      .setHeight( 20 );
 
     // bad
     Jedi.prototype.jump = function () {
-        this.jumping = true;
-        return true;
+      this.jumping = true;
+      return true;
     };
 
     Jedi.prototype.setHeight = function ( height ) {
-        this.height = height;
+      this.height = height;
     };
 
     var luke = new Jedi();
@@ -1423,16 +1423,16 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
 
     ```javascript
     function Jedi ( options ) {
-        options || ( options = {} );
-        this.name = options.name || 'no name';
+      options || ( options = {} );
+      this.name = options.name || 'no name';
     }
 
     Jedi.prototype.getName = function getName () {
-        return this.name;
+      return this.name;
     };
 
     Jedi.prototype.toString = function toString () {
-        return 'Jedi - ' + this.getName();
+      return 'Jedi - ' + this.getName();
     };
     ```
 
@@ -1447,13 +1447,13 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
     ```js
     // good
     $(this).trigger( 'listingUpdated', {
-        listingId: listing.id
+      listingId: listing.id
     });
 
     ...
 
     $(this).on( 'listingUpdated', function ( e, data ) {
-        // do something with data.listingId
+      // do something with data.listingId
     });
 
 
@@ -1463,7 +1463,7 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
     ...
 
     $(this).on( 'listingUpdated', function ( e, listingId ) {
-        // do something with listingId
+      // do something with listingId
     });
     ```
 
@@ -1482,20 +1482,20 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
     // fancyInput/fancyInput.js
 
     !function ( global ) {
-        'use strict';
+      'use strict';
 
-        var previousFancyInput = global.FancyInput;
+      var previousFancyInput = global.FancyInput;
 
-        function FancyInput ( options ) {
-            this.options = options || {};
-        }
+      function FancyInput ( options ) {
+        this.options = options || {};
+      }
 
-        FancyInput.noConflict = function noConflict () {
-            global.FancyInput = previousFancyInput;
-            return FancyInput;
-        };
+      FancyInput.noConflict = function noConflict () {
+        global.FancyInput = previousFancyInput;
+        return FancyInput;
+      };
 
-        global.FancyInput = FancyInput;
+      global.FancyInput = FancyInput;
     }( this );
     ```
 
@@ -1520,25 +1520,25 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
     ```javascript
     // good
     function setSidebar () {
-        var $sidebar = $('.sidebar');
-        $sidebar.hide();
+      var $sidebar = $('.sidebar');
+      $sidebar.hide();
 
-        // ...stuff...
+      // ...stuff...
 
-        $sidebar.css( {
-            'background-color': 'pink'
-        } );
+      $sidebar.css( {
+        'background-color': 'pink'
+      } );
     }
 
     // bad
     function setSidebar () {
-        $( '.sidebar' ).hide();
+      $( '.sidebar' ).hide();
 
-        // ...stuff...
+      // ...stuff...
 
-        $( '.sidebar' ).css( {
-            'background-color': 'pink'
-        } );
+      $( '.sidebar' ).css( {
+        'background-color': 'pink'
+      } );
     }
     ```
 
