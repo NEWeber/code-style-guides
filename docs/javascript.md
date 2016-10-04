@@ -414,7 +414,7 @@ From [Steve Kwan](#kwan-best-practices):
     var test;
     if ( currentUser ) {
       test = function test () {
-          console.log( 'Yup.' );
+        console.log( 'Yup.' );
       };
     }
 
