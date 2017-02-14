@@ -13,9 +13,12 @@
 
 Consistent code formatting increases readability, and reduces the overhead of understanding each other's code. A coder should be able to pick up any arbitrary file, and understand it quickly. Ideally, our codebase should look as though it were written by a single coder. You are not coding for yourself; you are coding for REI.
 
-### How do I propose a change?
+### What is the process for proposing a change?
 
-A developer who would like to propose a change to a code style guide must:
+The front-end development team holds an annual review event as a regular checkup to ensure the styles continue to fulfill their purpose, supplemented with ad hoc updates as new technologies, approaches, or styles gain traction with the team throughout the year.
+
+A developer who would like to propose a change to a code style guide can either
+wait for the annual styleguide review or purpose an an ad-hoc change:
 
 1. Create a PR with the proposed changes.
 1. Email the team requesting review, including a link to the PR.
@@ -30,6 +33,7 @@ A developer who would like to propose a change to a code style guide must:
 <sup>1</sup>Abstains will not be included in the vote approval calculation.<br>
 <sup>2</sup>Due to the team-wide impact<br>
 <sup>3</sup>To give everyone a chance to review<br>
+
 
 ### What about code with old formatting?
 
