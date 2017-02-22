@@ -17,8 +17,7 @@ Consistent code formatting increases readability, and reduces the overhead of un
 
 The front-end development team holds an annual review event as a regular checkup to ensure the styles continue to fulfill their purpose, supplemented with ad hoc updates as new technologies, approaches, or styles gain traction with the team throughout the year.
 
-A developer who would like to propose a change to a code style guide can either
-wait for the annual styleguide review or purpose an an ad-hoc change:
+A developer who would like to propose a change to a code style guide can either wait for the annual styleguide review or purpose an an ad-hoc change:
 
 1. Create a PR with the proposed changes.
 1. Email the team requesting review, including a link to the PR.
@@ -33,7 +32,6 @@ wait for the annual styleguide review or purpose an an ad-hoc change:
 <sup>1</sup>Abstains will not be included in the vote approval calculation.<br>
 <sup>2</sup>Due to the team-wide impact<br>
 <sup>3</sup>To give everyone a chance to review<br>
-
 
 ### What about code with old formatting?
 
@@ -51,4 +49,4 @@ Set up your editor to automatically format code per our style guide:
 - **Sublime Text**
   - Install [JS Beautify](https://github.com/enginespot/js-beautify-sublime).
   - Update settings using [this config](./.jsbeautifyrc).
-  - Code is formatted automatically on save by default. You can turn this off in the .jsbeautifyrc file and format on demand using CNTL-OPTION-F (mac) CNTL-ALT-F (win).
+  - Code is formatted automatically on save by default. You can turn this off in the .jsbeautifyrc file and format on demand using CTRL-OPTION-F (mac) CTRL-ALT-F (win).
